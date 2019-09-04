@@ -16,3 +16,11 @@ docker container inspect ex-daemon-basic
 
 //Comandos dentro do container
 docker container exec ex-daemon-basic uname -or
+
+
+///IMAGENS
+//Compilando Builds
+docker image build -t ex_simple_build .
+
+//Lista IMAGENS
+docker image ls
