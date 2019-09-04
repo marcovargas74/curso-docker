@@ -1,0 +1,18 @@
+//Redirecionar pasta padrao
+docker container run -p 8080:80 -v $(pwd)/not-found:/usr/share/nginx/html nginx
+
+//Rodando docker me background
+docker container run -d --name ex-daemon-basic -p 8080:80 -v $(pwd)/html:/usr/share/nginx/html nginx
+
+//lista todos os container rodando 
+docker container ps
+
+//Para o container
+docker container stop ex-daemon-basic 
+
+//logs
+docker container logs ex-daemon-basic
+docker container inspect ex-daemon-basic
+
+//Comandos dentro do container
+docker container exec ex-daemon-basic uname -or
