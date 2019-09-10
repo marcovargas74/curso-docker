@@ -1,3 +1,7 @@
+//Iniciando docker no Fedora
+sudo systemctl enable docker
+
+
 //Redirecionar pasta padrao
 docker container run -p 8080:80 -v $(pwd)/not-found:/usr/share/nginx/html nginx
 
@@ -24,3 +28,9 @@ docker image build -t ex_simple_build .
 
 //Lista IMAGENS
 docker image ls
+
+//Passando argumentos para imagem
+docker image build --build-arg S3_BUCKET=myapp -t ex-build-arg .
+
+//MOstra uma informacao especifica atraves de filtro
+docker image inspect --format="{{index .Config.Labels \"maintainer\"}}" ex-build-arg
